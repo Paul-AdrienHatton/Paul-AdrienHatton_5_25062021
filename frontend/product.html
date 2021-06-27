@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,25 +12,27 @@
     </head>
     <body>
 
-      <header>
-          <nav class="navbar navbar-expand-lg bg-dark">  
-            <a class="navbar-brand" href="index.html"><img src="../img/logo.jpg" alt="Logo Orinoco"></a>
-            <div class = "navbar-nav ml-auto">
-                <ul class="navbar-nav mr-auto text-center">
-                    <li class="nav-item">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-dark">  
+              <a class="navbar-brand" href="index.html"><img src="../img/logo.jpg" alt="Logo Orinoco"></a>
+              <div class = "navbar-nav ml-auto">
+                  <ul class="navbar-nav mr-auto text-center">
+                      <li class="nav-item">
+                          <a class="nav-link" href="./index.html">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="./basket.html">Panier</a>
                     </li>
-                </ul>
+                  </ul>
+              </div>
+          </nav>
+        </header>
+
+        <div class="container">
+            <div class="col" id="items">
+              <!--Intégration du produit dynamique en js-->
             </div>
-        </nav>
-      </header>
-
-
-      <div class="container">
-          <ul class="col" id="teddy_bear">
-            <!--Intégration des articles js-->
-          </ul>
-      </div>
+        </div>
      
       <!--...................................................................-->
       
@@ -40,9 +41,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script src="JS/index.js"></script> 
-      <script src="JS/product.js"></script>
-      <!--...................................................................-->
+      <script src="../frontend/JS/product.js"></script>
+      <!--................................... ................................-->
       
     </body>
 </html>
