@@ -1,35 +1,39 @@
-// Récupération des données ours en peluches avec l'API fetch
+//////////  Récupération des données ours en peluches avec l'API fetch.
 
 fetch("http://localhost:3000/api/teddies")
   .then((response) => response.json())
   .then((response) => {
-    console.table(response);
+    console.log(response);
 
-    //Variable ou seront injecter les elements
+    //Je créer ma variable que je vais ajouter à mes elements
     let html = "";
 
-    // Boucle pour récupére toutes les variables des produits
-    // on déclare la valeur de i
-    // on déclare jusqu'ou on boucle (tant que i est inférieur à response.lenght, la boucle continue)
-    // on incrémente i si la condition 2 n'est pas remplie
+    // Boucle pour récupére toutes les variables des produits + (Foreach)
     for (let i = 0; i < response.length; i++) {
       console.log(response[i].name);
 
-      //Html à injecter, Création des élément, clone de l'api
+      //Html pur , Créer les élément, clone prototype
       html += `<li class="item">
       <h2 class="row">${response[i].name}</h2>
       <p class="row"><img src="${
         response[i].imageUrl
-      }" alt="Images ours" style= "width:500px;"></p>
+      }" alt="Images ours" style= "width:28rem; border-radius:5px;"></p>
       <p class="row">${response[i].description}</p>
       <p class="row">${(response[i].price / 100)
         .toFixed(2)
-        .replace(".", ",")} €</p>
-      <a class="row" href="./product.html?${response[i]._id}"<button>Choisir ${
-        response[i].name
-      }</button></a></li>`;
+        .replace(".", ",")}€</p>
+      <a class="row" href="./produit.html?${
+        response[i]._id
+      }"<button>Voir l'article</button></a></li>`;
     }
 
     // Ajouter mes element créer dans le HTML pour afficher mes produits
-    document.getElementById("teddy_bear").innerHTML = html;
+    document.getElementById("bear").innerHTML = html;
+  })
+
+  // Message d'erreur
+  .catch((e) => {
+    alert(
+      "Nous n'avons pas réussi à afficher les ours en peluche. Avez-vous bien lancé le serveur local (port  3000) ?"
+    );
   });
