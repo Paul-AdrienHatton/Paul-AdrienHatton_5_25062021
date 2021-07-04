@@ -60,7 +60,7 @@ function displayQuantity() {
     //Total prix passé en fin de tableau et boutton annuler commande
     boxSection.insertAdjacentHTML(
       //éviter la sérialisation supplémentaire, rend la fonction plus rapide et directe que innerHTML.
-      "beforeend", //Juste à l'intérieur de l'element , après son dernier enfant.
+      "beforeend", //Juste à l'intérieur de l'element, après son dernier enfant.
       `<div class="total" style="margin-left:5%;">
                 <p class="cart-section" style="margin-right:5%;">Total: ${(
                   total / 100
@@ -206,7 +206,7 @@ function updateNumberArticles() {
 function sendform() {
   //Récupère les valeurs de l'input dans contact__form (récupère les données remplie dans le formulaire)
   let contact = {
-    firstName: document.getElementById("firstname").value, //Récupère les id des produits du panier dans le tableau products et le insère dans la variable contact
+    firstName: document.getElementById("firstname").value, //Récupère les valeurs du form les insères dans un objet contact
     lastName: document.getElementById("name").value,
     address: document.getElementById("address").value,
     city: document.getElementById("city").value,
@@ -219,12 +219,12 @@ function sendform() {
     let productTab = JSON.parse(sessionStorage.getItem("anyItem")); //convertir en objet JavaScript getItem convertie en string en ajoutant les données reçus, reçoit le storage sous JS
     productTab.forEach((p) => {
       // Pour chaque paramètres récupéré dans le storage on récupèrer les données que l'on push dans le tableau products
-      products.push(p._id);
+      products.push(p._id); // on obtient un array de string
     });
   }
 
   let contactItems = JSON.stringify({
-    // objet js transformé en json pour les données de contact et des produits
+    // objet js transformé en json string pour les données de contact et des produits pour le body de fetch post
     contact,
     products,
   });
@@ -247,8 +247,8 @@ function postOrder(contactItems) {
     .then((res) => {
       //ajout à l'emplacement de stockage pour la session
       sessionStorage.setItem("contact", JSON.stringify(res.contact)); // objet js transformé en json pour les données de contact
-      sessionStorage.setItem("orderId", JSON.stringify(res.orderId)); // objet js transformé en json pour les données des produits
-      sessionStorage.setItem("total", JSON.stringify(total)); // objet js transformé en json pour le total
+      sessionStorage.setItem("orderId", JSON.stringify(res.orderId)); // objet js transformé en json string pour les données des produits
+      sessionStorage.setItem("total", JSON.stringify(total)); // objet js transformé en json string pour le total
       sessionStorage.removeItem("anyItem"); //supprime la ressource avec le nom de clé correspondant du storage anyItem
       window.location.replace("./confirmation.html"); //Envoie page "confirmation"
     })

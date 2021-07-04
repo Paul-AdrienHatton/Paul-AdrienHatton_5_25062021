@@ -1,4 +1,4 @@
-//////////  Récupération des données ours en peluches avec l'API fetch.
+//Récupération des données ours en peluches avec l'API fetch.
 
 fetch("http://localhost:3000/api/teddies")
   .then((response) => response.json())
@@ -12,7 +12,7 @@ fetch("http://localhost:3000/api/teddies")
     for (let i = 0; i < response.length; i++) {
       console.log(response[i].name);
 
-      //Html pur , Créer les élément, clone prototype
+      //Html pur , Création des élément
       html += `<li class="item">
       <h2 class="row">${response[i].name}</h2>
       <p class="row"><img src="${
